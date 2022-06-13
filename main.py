@@ -51,32 +51,6 @@ def main():
     print('x_train',x_train.shape)
 
 
-    ##### To Create Local Explanations ########
-    if (int(configuration.get('local_shap_values'))):
-
-        import Create_Shap_Local_Values as shap
-        execution = shap.Create_Shap_Local_Values(dsConf,configuration)
-        train_XAI, test_XAI = execution.shap_local_values(x_train,x_test,y_train)
-    else :
-
-        import Create_Shap_Local_Values as shap
-        execution = shap.Create_Shap_Local_Values(dsConf, configuration)
-        train_XAI, test_XAI = execution.load_shap_values()
-
-
-
-    if (int(configuration.get('Fine_Tuning'))) :
-        import fine_tuning as fn
-        execution = fn.fine_tuning(dsConf,configuration)
-        execution.tuning_XAI(x_train,x_test,y_train,y_test)
-        execution.tuning_after_XAI(x_train,x_test,y_train,y_test)
-
-    if (int(configuration.get('Fine_Tuning_baseline'))) :
-        import fine_tuning as fn
-        execution = fn.fine_tuning(dsConf,configuration)
-        execution.baseline_fine_tuning_XAI(x_train,x_test,y_train,y_test)
-
-
     if (int(configuration.get('TRAIN_BASELINE'))) :
        #### Creating Configurations 2
         import Baseline_Configurations as Baseline
@@ -94,6 +68,34 @@ def main():
         import Baseline_Configurations as Baseline
         execution = Baseline.Baseline_Configurations(dsConf,configuration)
         execution.Model_trained_on_Adv_Samples(x_train,x_test,y_train,y_test)
+
+
+
+    ##### To Create Local Explanations ########
+
+    if (int(configuration.get('local_shap_values'))):
+            import Create_Shap_Local_Values as shap
+            execution = shap.Create_Shap_Local_Values(dsConf, configuration)
+            train_XAI, test_XAI = execution.shap_local_values(x_train, x_test, y_train)
+    else:
+
+            import Create_Shap_Local_Values as shap
+            execution = shap.Create_Shap_Local_Values(dsConf, configuration)
+            train_XAI, test_XAI = execution.load_shap_values()
+
+    if (int(configuration.get('Fine_Tuning'))) :
+        import fine_tuning as fn
+        execution = fn.fine_tuning(dsConf,configuration)
+        execution.tuning_XAI(x_train,x_test,y_train,y_test)
+        execution.tuning_after_XAI(x_train,x_test,y_train,y_test)
+
+    if (int(configuration.get('Fine_Tuning_baseline'))) :
+        import fine_tuning as fn
+        execution = fn.fine_tuning(dsConf,configuration)
+        execution.baseline_fine_tuning_XAI(x_train,x_test,y_train,y_test)
+
+
+
 
 
 

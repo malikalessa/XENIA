@@ -14,15 +14,15 @@ class Baseline_Configurations():
 
     def __init__(self, dsConfig, config):
         self.config = config
-        self.ds = dsConfig
+        self.dsConfig = dsConfig
 
     ##### Creating Baseline Model
 
     def Baseline_model(self, x_train,x_test, y_train, y_test):
         ##Hyperopt on T1 to learn  DNN####
         ########################### Config 2 #########################3
-        path = self.ds.get('pathModels')
-        n_class = int(self.ds.get('n_class'))
+        path = self.dsConfig.get('pathModels')
+        n_class = int(self.dsConfig.get('n_class'))
         gc.n_class = n_class
         report_name = path + 'Hyperopt_Config2.txt'
         try:
@@ -33,7 +33,7 @@ class Baseline_Configurations():
         config_No = 2
 
         model_hyperopt, time1,score = Baseline_HyperModel.hypersearch(x_train,y_train,x_test,y_test,path,config_No)
-        model_hyperopt.save(path+ self.ds.get('baseline_model'))
+        model_hyperopt.save(path+ self.dsConfig.get('baseline_model'))
         # model_hyperopt = load_model(path + self.ds.get('baseline_model'))
 
         Y_predicted = np.argmax(model_hyperopt.predict(x_test), axis=1)
@@ -49,8 +49,8 @@ class Baseline_Configurations():
     def Model_trained_on_Adv_Samples(self,x_train,x_test, y_train,y_test):
 
 
-        path = self.ds.get('pathModels')
-        n_class = int(self.ds.get('n_class'))
+        path = self.dsConfig.get('pathModels')
+        n_class = int(self.dsConfig.get('n_class'))
         gc.n_class = n_class
 
 
@@ -62,7 +62,7 @@ class Baseline_Configurations():
 
 
         ################ Config 6 #########################################3
-        if (int(self.config.get('Dalex_model')) == 6):
+        if (int(self.config.get('Config_model')) == 6):
             print('Training Conf-6')
 
             report_name = path + 'Hyperopt_Config_6.txt'

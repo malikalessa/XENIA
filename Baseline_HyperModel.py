@@ -56,7 +56,7 @@ def NN(params):
     YTraining = np_utils.to_categorical(YTraining, gc.n_class)
     YValidation = np_utils.to_categorical(YValidation, gc.n_class)
 
-    h = model.fit(XTraining, YTraining, batch_size=params["batch"], epochs=150, verbose=2, callbacks=callbacks_list
+    h = model.fit(XTraining, YTraining, batch_size=params["batch"], epochs=1, verbose=2, callbacks=callbacks_list
                   , shuffle=True, validation_data=(XValidation, YValidation))
 
     toc = time.time()
@@ -167,7 +167,7 @@ def hypersearch(train_scaler, y_train, test_scaler, y_test, testPath, config_No)
 
     trials = Trials()
 
-    best = fmin(fit_and_score, space, algo=tpe.suggest, max_evals=30, trials=trials,
+    best = fmin(fit_and_score, space, algo=tpe.suggest, max_evals=1, trials=trials,
                 rstate=np.random.RandomState(my_seed))
     gc.best_model.save(testPath + 'Attack_Type_' + str(gc.Attack_Type) + '_NN.h5')
     best_weights = testPath + 'Weights_NN.h5'
