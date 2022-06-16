@@ -56,7 +56,7 @@ def NN(params):
     YTraining = np_utils.to_categorical(YTraining, gc.n_class)
     YValidation = np_utils.to_categorical(YValidation, gc.n_class)
 
-    h = model.fit(XTraining, YTraining, batch_size=params["batch"], epochs=1, verbose=2, callbacks=callbacks_list
+    h = model.fit(XTraining, YTraining, batch_size=params["batch"], epochs=150, verbose=2, callbacks=callbacks_list
                   , shuffle=True, validation_data=(XValidation, YValidation))
 
     toc = time.time()
