@@ -81,7 +81,10 @@ def main():
 
             import Create_Shap_Local_Values as shap
             execution = shap.Create_Shap_Local_Values(dsConf, configuration)
-            train_XAI, test_XAI = execution.load_shap_values()
+            try:
+                train_XAI, test_XAI = execution.load_shap_values()
+            except :
+                print(' The local Explanations are not created, choose 1 for local_shap_values in Conf file to create them')
 
     if (int(configuration.get('Fine_Tuning'))) :
         import fine_tuning as fn
