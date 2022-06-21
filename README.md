@@ -44,26 +44,17 @@ The implementation for all the experiments used in this work are listed in this 
 
 ## Replicate the Experiments
 
-To replicate the experiments of this work, the models and datasets that have been saved in [Datasets and Models](https://drive.google.com/drive/folders/1KnGoU2l1dxVQxIpq8AX9dAzTHuCl-_I5) can be used. Global Variable are saved in PANACEA.conf :
+To replicate the experiments of this work, the models and datasets that have been saved in [Datasets and Models](https://drive.google.com/drive/folders/1TUCquwp-mB4UVcJrnoHkRQKkCKKJ407n) can be used. Global Variable are saved in PANACEA.conf :
 
 * ###### TRAIN_BASELINE = 0   &emsp;        #1 train baseline with hyperopt <br />
 * ###### CREATE_ADVERSARIAL_SET=0 &emsp;  #if 1 create the adversarial samples <br />
-* ###### NUMBER_OF_MODELS=5       &emsp;  #Number of Models to be chosen <br />
+* ###### Attack_Type =1      &emsp;  ## 1 for FGSM  <br />
 
-* ###### sigma=0.05             &emsp;      #percentage of adversarial samples <br />
-* ###### CREATE_CANDIDATE_MODELS = 0  &emsp; #if 1 create the candidate models with the number of NUMBER_OF_MODELS <br />
-* ###### USE_MEDOIDS=1              &emsp;  #if 0 the execution is performed with ensemble without medoids <br />
-* ###### CREATE_DALEX_DATASET= 0  &emsp;    #if 1 create the csv with dalex values if 0 the csv file will be loaded <br />
+* ###### train_Attack = 1             &emsp;      #0 not to train, 1 to train / To Train a model using adversarial training <br />
+* ###### local_shap_values = 1  &emsp; #if 1 to compute local shap values, 0 to load the saved values <br />
+* ###### Config_model= 6             &emsp;  #if 2 for baseline, 6 for T_A model <br />
+* ###### Fine_Tuning = 0 &emsp;    #if 1 To fine-tune model6 (Adversarial training model). The model will be fine-tuned twice, using XAI and T+A <br />
  
-* ###### ENSEMBLE = 1       &emsp;          #To choose the models based on the XAI and Clustering <br />
-* ###### TRAIN_ENSEMBLE = 0   &emsp;        #1 To choose the ensemble members based on XAI and Clustering, and to train the ensemble model using hyperopt, #0 to compute the majority voting for the ensemble model <br />
-
-* ###### INDIVIDUAL_PREDICTION=0   &emsp;   #0 no prediction, 1 prediction for individual models <br />
-
-* ###### SEQUENTIAL = 0          &emsp;     #to choose the models sequentially <br />
-* ###### USE_SEQUENTIAL = 0     &emsp;      #1 to train the ensemble model using hyperopt, 0 to compute the majority voting <br />
-
-* ###### Majority_Voting = 0    &emsp;      #1 To choose Majority Voting for Predicting the Models <br />
-* ###### Medoid_Voting = 0     &emsp;       #1 for choosing majority voting for medoids, 0 for choosing majority voting for sequential models <br />
+* ###### Fine_Tuning_baseline = 0      &emsp;          ## 1 To fine tune the baseline model, The model will be fine tuned twice, using XAI and T <br />
 
 
