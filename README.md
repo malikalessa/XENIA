@@ -52,9 +52,9 @@ To replicate the experiments of this work, the models and datasets that have bee
 
 * ###### train_Attack = 1             &emsp;      #0 not to train, 1 to train / To Train a model using adversarial training <br />
 * ###### local_shap_values = 1  &emsp; #if 1 to compute local shap values, 0 to load the saved values <br />
-* ###### Config_model= 6             &emsp;  #if 2 for baseline, 6 for T_A model <br />
-* ###### Fine_Tuning = 0 &emsp;    #if 1 To fine-tune model6 (Adversarial training model). The model will be fine-tuned twice, using XAI and T+A <br />
+* ###### Config_model= 6             &emsp;  #if 2 for baseline(V1), 6 for T_A model (V2) <br />
+* ###### Fine_Tuning = 0 &emsp;    #if 1 To fine-tune V2 (Adversarial training model). The model will be fine-tuned twice, using XAI and T+A <br />
  
-* ###### Fine_Tuning_baseline = 0      &emsp;          ## 1 To fine tune the baseline model, The model will be fine tuned twice, using XAI and T <br />
+* ###### Fine_Tuning_baseline = 0      &emsp;          ## 1 To fine tune the baseline(V1) model, The model will be fine tuned twice, using XAI and T <br />
 
 
