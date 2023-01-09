@@ -9,7 +9,8 @@ Malik AL-Essa, Giuseppina Andresini, Annalisa Appice, Donato Malerba
 
 ![image](https://user-images.githubusercontent.com/38468857/174758214-12e27a42-5347-450c-bc14-31ae0e95758c.png)
 
-
+# Cite this paper
+M. AL-Essa, G. Andresini, A. Appice, D. Malerba, An xai-based adversarial training approach for cyber-threat detection, in: 2022 IEEE Intl Conf on Dependable, Autonomic and Secure Computing, Intl Conf on Pervasive Intelligence and Computing, Intl Conf on Cloud and Big Data Computing, Intl Conf on Cyber Science and Technology Congress (DASC/PiCom/CBDCom/CyberSciTech), 2022, pp. 1–8.
 
 
 
